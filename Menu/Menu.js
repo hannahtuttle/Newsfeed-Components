@@ -2,7 +2,7 @@
 const toggleMenu = () => {
   // Toggle the "menu--open" class on your menu refence. 
   menu.classList.toggle('menu--open')
-  menu.classList.add('menu--slide')
+  menu.style.animation = 'nudge 3s'
 }
 
 
