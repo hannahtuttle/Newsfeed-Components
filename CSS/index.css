@@ -35,11 +35,6 @@
   margin: 0;
   font-size: 48px;
 }
-.menu-button {
-  position: absolute;
-  left: 20px;
-  cursor: pointer;
-}
 .menu {
   display: none;
   position: fixed;
@@ -64,6 +59,18 @@
 .menu--open {
   display: block;
 }
+.menu--slide {
+  animation: nudge 3s;
+  animation-duration: alternate;
+}
+@keyframes nudge {
+  0% {
+    transform: translate(-100%, 0);
+  }
+  100% {
+    transform: translate(0%, 0);
+  }
+}
 .articles {
   margin-top: 95px;
 }
@@ -78,21 +85,21 @@
   overflow: hidden;
   box-shadow: 2px 2px 2px lightgrey;
 }
-.article h2 {
+h2 {
   font-size: 28px;
   padding: 0;
   margin: 15px 0 0;
 }
-.article .date {
+.date {
   margin: 0;
   font-size: 14px;
 }
-.article .close {
+.close {
   position: absolute;
   top: 10px;
   right: 10px;
 }
-.article .expandButton {
+.expandButton {
   position: absolute;
   bottom: 0;
   left: 50%;
