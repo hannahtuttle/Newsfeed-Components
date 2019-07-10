@@ -44,7 +44,7 @@
 
 // JS function component.
 /* This is the data we will be using to create our article components */
-/* Look over this data, then proceed to line 91*/
+/* Look over this data, then proceed to line 136*/
 const data = [
   {
     title: 'Lambda School Students: "We\'re the best!"',
@@ -149,3 +149,26 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new artible
 
   */
+ function articleComponent(titleH2, dateP, firstP, secondP, thirdP, button) {
+
+  const article = document.createElement('div')
+  const title = document.createElement('h2')
+  const date = document.createElement('p')
+  const firstParagraph = document.createElement('p')
+  const secondParagraph = document.createElement('p')
+  const thirdParagraph = document.createElement('p')
+  const exButton = document.createElement('span')
+
+  article.appendChild(title)
+  article.appendChild(date)
+  article.appendChild(firstParagraph)
+  article.appendChild(secondParagraph)
+  article.appendChild(thirdParagraph)
+  article.appendChild(exButton)
+
+  article.classList.add('article')
+  date.classList.add('date')
+  exButton.classList.add('expandButton')
+
+
+ }
