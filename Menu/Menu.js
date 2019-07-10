@@ -71,6 +71,7 @@ function menuComponent (array) {
   menuButton.addEventListener('click', event => {
     console.log('clicked', event.target)
     menu.classList.toggle('menu--open')
+    menu.style.animation = 'nudge 3s'
   })
 
   return menu

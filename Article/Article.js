@@ -130,6 +130,15 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'New Article',
+    date: 'Dec 19th, 1990',
+    firstParagraph: `Hello this is a test article`,
+
+    secondParagraph: `It's so crazy!`,
+
+    thirdParagraph: `Wowowowowowowowowowowowowowowowowowowowowowowowowowowowow`
   }
 ];
 
@@ -149,26 +158,46 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new artible
 
   */
- function articleComponent(titleH2, dateP, firstP, secondP, thirdP, button) {
 
-  const article = document.createElement('div')
-  const title = document.createElement('h2')
-  const date = document.createElement('p')
-  const firstParagraph = document.createElement('p')
-  const secondParagraph = document.createElement('p')
-  const thirdParagraph = document.createElement('p')
-  const exButton = document.createElement('span')
+const articles = document.querySelector('.articles')
 
-  article.appendChild(title)
-  article.appendChild(date)
-  article.appendChild(firstParagraph)
-  article.appendChild(secondParagraph)
-  article.appendChild(thirdParagraph)
-  article.appendChild(exButton)
+data.forEach(data => {
+  articles.appendChild(articleComponent(data.title, data.date, data.firstParagraph, data.secondParagraph, data.thirdParagraph))
+})
 
-  article.classList.add('article')
-  date.classList.add('date')
-  exButton.classList.add('expandButton')
+ function articleComponent(titleH2, dateP, firstP, secondP, thirdP) {
+
+    const article = document.createElement('div')
+    const title = document.createElement('h2')
+    const date = document.createElement('p')
+    const firstParagraph = document.createElement('p')
+    const secondParagraph = document.createElement('p')
+    const thirdParagraph = document.createElement('p')
+    const exButton = document.createElement('span')
+
+    article.appendChild(title)
+    article.appendChild(date)
+    article.appendChild(firstParagraph)
+    article.appendChild(secondParagraph)
+    article.appendChild(thirdParagraph)
+    article.appendChild(exButton)
+
+    article.classList.add('article')
+    date.classList.add('date')
+    exButton.classList.add('expandButton')
 
 
+    title.textContent = titleH2
+    date.textContent = dateP
+    firstParagraph.textContent = firstP
+    secondParagraph.textContent = secondP
+    thirdParagraph.textContent = thirdP
+    exButton.textContent = 'expand'
+
+    exButton.addEventListener('click', event => {
+      console.log('clicked', event.target)
+      article.classList.toggle('article-open')
+    })
+
+  return article
  }
